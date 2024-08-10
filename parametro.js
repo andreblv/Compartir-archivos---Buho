@@ -1,20 +1,13 @@
-// Obtén la URL actual
+// URL actual
 const urlActual = window.location.href;
 
-// Verifica si el parámetro 'nombre' ya está presente en la URL
-const parametros = new URLSearchParams(window.location.search);
-let carpetaNombre = parametros.get("nombre");
+// Url final 
+var carpetaNombre = window.location.pathname.split('/').pop();
 
 if (!carpetaNombre) {
-    // Si 'nombre' no está presente, genera un número aleatorio
+    // Genera un nombre aleatorio si no existe
     carpetaNombre = generarCadenaAleatoria();
-    // Agrega el parámetro 'nombre' a la URL
-    const urlConParametro = urlActual.includes("?") ? `${urlActual}&nombre=${carpetaNombre}` : `${urlActual}?nombre=${carpetaNombre}`;
-    // Redirige a la nueva URL con el parámetro 'nombre'
-    window.location.href = urlConParametro;
-} else {
-    // Llama a la función para crear la carpeta con el nombre obtenido
-    crearCarpeta(carpetaNombre);
+    window.location.href = `${window.location.origin}${window.location.pathname}${carpetaNombre}`;
 }
 
 // Función para generar una cadena aleatoria

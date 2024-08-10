@@ -9,12 +9,12 @@
 
 body {
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   color: #333; /* Texto oscuro */
   text-align: center;
   padding: 20px;
-  background-color: #f8f8f8; /* Fondo gris suave */
+  background-color: #767676; /* Fondo gris suave */
 }
 
 
@@ -44,16 +44,19 @@ body::before {
 .content {
   background-color: #ffffff; /* Fondo blanco */
   padding: 20px;
-  border-radius: 10px; /* Bordes redondeados */
-  max-width: 100%;
+  border-radius: 20px; /* Bordes redondeados */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 h1 {
   font-weight: 600;
-  font-size: 32px;
+  font-size: 45px;
   margin: 20px 0;
-  color: #ff6600; /* Color naranja */
+  padding: 10px;
+  color: #0013a6; /* Color naranja */
 }
 
 .container {
@@ -64,37 +67,201 @@ h1 {
 }
 
 /* Contenedores individuales */
-.drop-area,
-.container2 {
+.drop-area{
   width: 100%;
-  max-width: 400px; /* Ancho máximo para evitar que se vuelva demasiado ancho */
+  max-width: 450px; /* Ancho máximo para evitar que se vuelva demasiado ancho */
   margin: 10px;
   padding: 20px;
-  transition: all .1s ease-in;
-  background-color: #f0e9e9; /* Fondo gris suave */
+  transition: all .2s ease-in;
+  background-color: #ffffff; /* Fondo gris suave */
 }
 
 .drop-area {
-  border: 2px dashed #c2194c; /* Borde naranja */
+  border: 2px dashed #5a4102; 
   border-radius: 10px;
 }
 
-.container2 {
-  padding: 10px 20px;
-  background-color: #f8f8f8; /* Fondo gris suave */
-  overflow-y: auto;
+
+
+.botonSubir {
+  margin: 0 auto;
+  display: inline-block;
+  padding: 20px 25px;
+  font-size: 20px;
+  cursor: pointer;  
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #144190;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  transition: all 0.5s;
 }
 
-/* Estilos para pantallas más pequeñas */
-@media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
+.botonSubir:hover {
+  background-color: #00235d;
+}
+
+.botonSubir:active {
+  background-color: #021c4f;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+
+
+.beta{
+  background: #f02626;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 0 12px;
+  color: #ffffff;
+}
+
+
+/* Contenedor de archivos subidos */
+.container2 {
+  flex: 1;
+  margin: 10px; 
+  box-sizing: border-box; 
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px 20px;
+  background-color: #ebf0ff;
+  max-height: 430px;
+  overflow-y: auto;
+  width: 435px;
+}
+
+.archivos_subidos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.archivos_subidos a {
+  text-decoration: none;
+  color: #2e51ff;
+}
+
+.archivos_subidos a:hover {
+  text-decoration: underline;
+}
+
+.btn_delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff6f61;
+  padding: 5px;
+}
+
+.btn_delete:hover {
+  color: #d9534f;
+}
+
+h3 span {
+  color: #ff4437;
+}
+
+/* Pantallas entre 1200px y 1440px */
+@media screen and (min-width: 1200px) and (max-width: 1440px) {
+  .content {
+    padding: 15px;
   }
 
-  .drop-area,
+  h1 {
+    font-size: 28px;
+  }
+
+  .drop-area {
+    max-width: 400px;
+  }
+
   .container2 {
-    width: 90%; /* Reducir el ancho en pantallas más pequeñas */
-    max-width: none; /* Restablecer el ancho máximo */
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Pantallas entre 992px y 1199px */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .drop-area {
+    max-width: 350px;
+    padding: 15px;
+  }
+
+  .botonSubir {
+    font-size: 18px;
+    padding: 15px 20px;
+  }
+
+  .container2 {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* Pantallas entre 768px y 991px */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .drop-area {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+
+  .container2 {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
+/* Pantallas hasta 767px */
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .content {
+    padding: 5px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .drop-area {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .botonSubir {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .container2 {
+    width: 100%;
+    padding: 5px;
   }
 }
