@@ -8,4 +8,4 @@ La forma más rápida de compartir un archivo. Desde donde quieras hacia donde q
 - Permitir cargar multiples archivos al mismo tiempo
 
 ## Screenshots
-![App Screenshot](./screenshot-1.png)
+![App Screenshot](./image.png)
