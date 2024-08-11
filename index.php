@@ -57,6 +57,7 @@ try {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,10 +65,11 @@ try {
     <script src="parametro.js" defer></script>
     <link rel="stylesheet" href="estilo.css">
 </head>
+
 <body>
     <h1>Compartir archivos <sup class="beta">BETA</sup></h1>
     <div class="content">
-        <h3>Sube tus archivos y comparte este enlace temporal: <span>andrelv.store/<?php echo htmlspecialchars($carpetaNombre); ?></span></h3>
+        <h3>Sube tus archivos y comparte este enlace temporal: <span>andrelv.store/<?php echo $carpetaNombre; ?></span></h3>
         <div class="container">
             <div class="drop-area" id="drop-area">
                 <form action="" id="form" method="POST" enctype="multipart/form-data">
@@ -94,10 +96,19 @@ try {
                             echo "<div class='archivos_subidos'>
                             <div><a href='$carpetaRuta/$file' download class='boton-descargar'>$file</a></div>
                             <div>
-                                <form action='' method='POST' style='display:inline;'>
-                                    <input type='hidden' name='eliminarArchivo' value='$file'>
-                                    <button class='boton-eliminar' type='submit'>Eliminar</button>
-                                </form>
+                            <form action='' method='POST' style='display:inline;'>
+                                <input type='hidden' name='eliminarArchivo' value='$file'>
+                                <button title='Eliminar archivo' type='submit' class='btn_delete'>
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-trash' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                        <path stroke='none' d='M0 0h24v24H0z' fill='none'/>
+                                        <path d='M4 7l16 0' />
+                                        <path d='M10 11l0 6' />
+                                        <path d='M14 11l0 6' />
+                                        <path d='M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12' />
+                                        <path d='M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3' />
+                                    </svg>
+                                </button>
+                            </form>
                             </div>
                             </div>";
                         }
@@ -110,4 +121,5 @@ try {
         </div>
     </div>
 </body>
+
 </html>

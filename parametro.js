@@ -7,7 +7,9 @@ var carpetaNombre = window.location.pathname.split('/').pop();
 if (!carpetaNombre) {
     // Genera un nombre aleatorio si no existe
     carpetaNombre = generarCadenaAleatoria();
-    window.location.href = `${window.location.origin}${window.location.pathname}${carpetaNombre}`;
+    window.location.href = urlActual + carpetaNombre;
+} else {
+    crearCarpeta(carpetaNombre);
 }
 
 // Función para generar una cadena aleatoria
